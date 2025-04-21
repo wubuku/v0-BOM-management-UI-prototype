@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button"
 
 interface ErrorBoundaryProps {
   error: Error & { digest?: string }
-  reset: () => void
+  reset?: () => void
 }
 
 export default function ErrorBoundary({ error, reset }: ErrorBoundaryProps) {
@@ -14,11 +14,20 @@ export default function ErrorBoundary({ error, reset }: ErrorBoundaryProps) {
     console.error(error)
   }, [error])
 
+  const handleReset = () => {
+    if (typeof reset === "function") {
+      reset()
+    } else {
+      // Fallback if reset is not available
+      window.location.reload()
+    }
+  }
+
   return (
     <div className="flex flex-col items-center justify-center min-h-screen p-4 text-center">
       <h2 className="text-2xl font-bold mb-4">出错了</h2>
       <p className="mb-6 text-gray-600">抱歉，应用程序遇到了一个错误。</p>
-      <Button onClick={reset}>重试</Button>
+      <Button onClick={handleReset}>重试</Button>
     </div>
   )
 }

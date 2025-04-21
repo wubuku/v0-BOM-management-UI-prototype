@@ -5,8 +5,17 @@ export default function GlobalError({
   reset,
 }: {
   error: Error & { digest?: string }
-  reset: () => void
+  reset?: () => void
 }) {
+  const handleReset = () => {
+    if (typeof reset === "function") {
+      reset()
+    } else {
+      // Fallback if reset is not available
+      window.location.reload()
+    }
+  }
+
   return (
     <html>
       <head>
@@ -27,7 +36,7 @@ export default function GlobalError({
           <h2 style={{ fontSize: "1.5rem", fontWeight: "bold", marginBottom: "1rem" }}>出错了</h2>
           <p style={{ marginBottom: "1.5rem", color: "#666" }}>抱歉，应用程序遇到了一个错误。</p>
           <button
-            onClick={() => reset()}
+            onClick={handleReset}
             style={{
               padding: "0.5rem 1rem",
               backgroundColor: "#3b82f6",
