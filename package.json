@@ -59,9 +59,9 @@
     "vaul": "^0.9.6",
     "zod": "^3.24.1",
     "@types/hoist-non-react-statics": "latest",
+    "reactflow": "latest",
     "react-dnd": "latest",
-    "react-dnd-html5-backend": "latest",
-    "reactflow": "latest"
+    "react-dnd-html5-backend": "latest"
   },
   "devDependencies": {
     "@types/node": "^22",
