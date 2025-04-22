@@ -241,7 +241,8 @@ export const productAssocs: ProductAssoc[] = [
     routingWorkEffortId: "TASK_CAKE_FILL",
   },
 
-  // 豪华蛋糕配方
+  // 豪华蛋糕配方 - 已注释掉，用于测试添加子节点功能
+  /*
   {
     productId: "CHOC_CAKE_DLX",
     productIdTo: "WIP_CAKE_BASE",
@@ -282,6 +283,7 @@ export const productAssocs: ProductAssoc[] = [
     sequenceNum: 4,
     routingWorkEffortId: "TASK_CAKE_DECOR",
   },
+  */
 
   // 迷你蛋糕配方
   {
